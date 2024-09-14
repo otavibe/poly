@@ -743,7 +743,12 @@ void algarismo(int n,int x,int y){
 
 void blitInt(int n,int x,int y){
 	int base,padding=0;
+	if(n<0){
+		line(x+1,y+4,x+2,y+4);
+		n=n*-1;
+	}
 	for(base=10;n>base;base=base*10);
+	if(n==10)algarismo(1,x+(padding++*7),y);
 	while(base>9){
 		algarismo((n%base)/(base/10),x+(padding++*7),y);
 		base=base/10;
